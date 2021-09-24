@@ -1,0 +1,74 @@
+<form #personForm="ngForm" (ngSubmit)="save(personForm)">
+  <div class="form-group">
+    <label for="firstName">FirstName</label>
+    <input
+      #firstNameInput="ngModel"
+      [ngClass]="{
+        'is-invalid': firstNameInput.invalid && firstNameInput.touched
+      }"
+      type="text"
+      name="firstName"
+      id="firstName"
+      class="form-control"
+      [(ngModel)]="person.firstName"
+      required
+    />
+    <div [hidden]="!firstNameInput.errors?.required" class="invalid-feedback">
+      First name is required!
+    </div>
+  </div>
+  <div>
+    <label for="lastName">LastName</label>
+    <input
+      #lastNameInput="ngModel"
+      [ngClass]="{
+        'is-invalid': lastNameInput.invalid && lastNameInput.touched
+      }"
+      type="text"
+      name="lastName"
+      id="lastName"
+      class="form-control"
+      [(ngModel)]="person.lastName"
+      required
+    />
+    <div [hidden]="!lastNameInput.errors?.required" class="invalid-feedback">
+      Last name is required!
+    </div>
+  </div>
+  <div>
+    <label for="country">Country</label>
+    <input
+      #countryInput="ngModel"
+      [ngClass]="{ 'is-invalid': countryInput.invalid && countryInput.touched }"
+      type="text"
+      name="country"
+      id="country"
+      class="form-control"
+      [(ngModel)]="person.country"
+      required
+    />
+    <div [hidden]="!countryInput.errors?.required" class="invalid-feedback">
+      Country is required!
+    </div>
+  </div>
+  <div>
+    <label for="age">Age</label>
+    <input
+      #ageInput="ngModel"
+      [ngClass]="{ 'is-invalid': ageInput.invalid && ageInput.touched }"
+      type="number"
+      name="age"
+      id="age"
+      class="form-control"
+      [(ngModel)]="person.age"
+      required
+    />
+    <div [hidden]="!ageInput.errors?.required" class="invalid-feedback">
+      Age is required!
+    </div>
+  </div>
+
+  <br />
+  <button type="submit" class="btn btn-primary">Save</button>
+  <a [hidden]="id === null" (click)="delete()" class="btn btn-danger">Delete</a>
+</form>

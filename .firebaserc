@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "person-documents-demo": {
+      "hosting": {
+        "angular-firestore-demo": [
+          "person-documents-demo"
+        ]
+      }
+    }
+  }
+}
